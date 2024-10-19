@@ -16,7 +16,7 @@ export function useTonConnectUI() {
         // @ts-expect-error
         : getCurrentInstance().appContext.app.config.globalProperties;
 
-    const tonConnectUI = globalPropertiesMap.$tonConnectUI;
+    const tonConnectUI : TonConnectUI = globalPropertiesMap.$tonConnectUI;
 
     const setOptions = (options: TonConnectUiOptions) => {
         if (tonConnectUI && tonConnectUI) {
