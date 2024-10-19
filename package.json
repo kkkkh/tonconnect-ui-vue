@@ -58,7 +58,6 @@
     }
   },
   "peerDependencies": {
-    "@vue/composition-api": "^1.0.0-rc.1",
     "vue": "^2.7.0 || >=3.0.0",
     "vue-demi": "^0.14.8"
   },
