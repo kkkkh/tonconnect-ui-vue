@@ -1,5 +1,5 @@
 <script lang="ts">
-import { defineComponent, h, onBeforeUnmount, onMounted } from "vue-demi";
+import { defineComponent, h, isVue2, onBeforeUnmount, onMounted } from "vue-demi";
 import { useTonConnectUI } from "../hooks/useTonConnectUI";
 
 export default defineComponent({
@@ -15,6 +15,9 @@ export default defineComponent({
     { slots }
   ) {
     const {setOptions} = useTonConnectUI();
+    const attrs = isVue2
+        ? { attrs: { id: props.buttonRootId || "" } }
+        : {};
     onMounted(() => {
       setOptions({ buttonRootId: props.buttonRootId });
     });
@@ -28,10 +31,8 @@ export default defineComponent({
         "div",
         {
           id: props.buttonRootId || "",
-          attrs: {
-            id: props.buttonRootId || "",
-          },
-          style: { width: "fit-content"},
+          style: { width: "fit-content" },
+          ...attrs
         } as any,
         (slots as any)?.default?.()
       );
