@@ -28,9 +28,6 @@ export default defineComponent({
         "div",
         {
           id: props.buttonRootId || "",
-          attrs: {
-            id: props.buttonRootId || "",
-          },
           style: { width: "fit-content"},
         } as any,
         (slots as any)?.default?.()
